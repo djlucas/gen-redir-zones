@@ -1,0 +1,15 @@
+$ORIGIN gen.com.	;
+$TTL 3600		;
+@			IN	SOA	server.example.com	hostmaster.gen.com	(
+								2022021201 ; serial
+								10800 ; refresh (3 hours)
+								900 ; retry (15 minutes)
+								604800 ; expire (1 week)
+								86400 ; minimum (1 day)
+											);
+@  			86400	IN	NS		server.example.com.
+@ 	 		86400	IN	A		127.0.0.1
+* 			86400	IN	A		127.0.0.1
+@			86400	IN	MX	10	gen.com.
+
+

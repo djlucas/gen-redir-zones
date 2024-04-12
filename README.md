@@ -10,3 +10,16 @@ named.conf include file for each application. This entire directory should be
 copied directly to /var/named/. You can then include the configuration file at
 the appropriate level in your named.conf file or other include (for instance,
 import these only at a particular view that includes children's PCs).
+
+For example, suppose the FQDN for my DNS server is dns1.example.com. I'd run:
+
+server="dns1.example.com" list="facebook.txt" bash gen-file.sh
+cp -R redir /var/named
+chmod 0640 /var/named/redir/facebook/*
+chown -r root:named /var/named/redir
+
+And in my /etc/named.conf, I'd add the line:
+
+include "redir/facebook/facebook.conf";
+
+This can be added directly if not using views, or in a view.
